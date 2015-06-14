@@ -2,12 +2,14 @@ package com.ikhsan.scala.rest
 
 // Messages
 
-trait RestMessage
+trait RequestMessage
+trait ResponseMessage
 
-case class ProvisionWithImei(imei: String) extends RestMessage
-case class NewSession(sessionId: String) extends RestMessage
-case class GetPetsWithOwners(petNames: List[String]) extends RestMessage
-case class PetsWithOwners(pets: Seq[EnrichedPet]) extends RestMessage
+case class ProvisionWithImei(imei: String) extends RequestMessage
+case class GetPetsWithOwners(petNames: List[String]) extends RequestMessage
+case class PetsWithOwners(pets: Seq[EnrichedPet]) extends RequestMessage
+
+case class Result(data: Any) extends ResponseMessage
 
 // Domain objects
 

@@ -10,10 +10,16 @@ import spray.http.HttpEntity
 import spray.httpx.unmarshalling._
 import spray.http._
 import spray.httpx.Json4sSupport
-import com.ikhsan.scala.rest.clients.ProvisionClient
-import com.ikhsan.scala.rest.core.ProvisionActor
 import com.ikhsan.scala.rest.ProvisionWithImei
 import org.json4s.DefaultFormats
+import akka.routing.FromConfig
+import akka.actor.ActorRef
+import akka.actor.ReceiveTimeout
+import akka.actor.OneForOneStrategy
+import akka.actor.SupervisorStrategy.Escalate
+import com.ikhsan.scala.rest.clients.AuthenticationClient
+import com.ikhsan.scala.rest.core.AuthenticationService
+import com.ikhsan.scala.rest.clients.AuthenticationClient
 
 class RestRouting extends HttpService with Actor with PerRequestCreator  with Json4sSupport {
 
@@ -22,10 +28,11 @@ class RestRouting extends HttpService with Actor with PerRequestCreator  with Js
   val json4sFormats = DefaultFormats
   def receive = runRoute(route)
 
-  val petService = context.actorOf(Props[PetClient])
-  val ownerService = context.actorOf(Props[OwnerClient])
-  val provisionService = context.actorOf(Props[ProvisionClient])
-
+  val petService = context.actorOf(Props[PetClient], "pet-service")
+  val ownerService = context.actorOf(Props[OwnerClient], "owner-service")
+  
+  val authenticationClient = context.actorOf(FromConfig.props(Props[AuthenticationClient]), "authentication-routing")
+  
   val route = {
     respondWithMediaType(MediaTypes.`application/json`) {
       get {
@@ -40,18 +47,16 @@ class RestRouting extends HttpService with Actor with PerRequestCreator  with Js
       post {
         path("provision") {
           entity(as[ProvisionWithImei]) { a =>
-            doProvision {
-              a
-            }
+            doProvision (a)
           }
         }
       }
     }
   }
 
-  def doProvision(message : RestMessage): Route =
-    ctx => perRequest(ctx, Props(new ProvisionActor(provisionService)), message)
+  def doProvision(message : RequestMessage): Route =
+    ctx => perRequest(ctx, Props(new AuthenticationService(authenticationClient)), message)
 
-  def petsWithOwner(message : RestMessage): Route =
+  def petsWithOwner(message : RequestMessage): Route =
     ctx => perRequest(ctx, Props(new GetPetsWithOwnersActor(petService, ownerService)), message)
 }

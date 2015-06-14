@@ -1,13 +1,13 @@
-New log file opened at Tue Jun 09 16:11:52 ICT 2015 by 2548@crot
-Taking next connection to: 52226
-New client attempting to connect on port: 52227-52226
-  Address = /192.168.0.116:52226
-This client on port 52227 has uuid cb1c40a6-72f6-4ce2-b084-6bd568816f0a configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
-Connected Clients: activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a
-Taking next connection to: 52226
-New client attempting to connect on port: 52228-52226
-  Address = /192.168.0.116:52226
-Handshake exception on socket: 52228
+New log file opened at Sat Jun 13 21:18:01 ICT 2015 by 4208@crot
+Taking next connection to: 50733
+New client attempting to connect on port: 50734-50733
+  Address = /192.168.0.116:50733
+This client on port 50734 has uuid 5cec8732-318b-4a20-ae91-cf78dabf7408 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-5cec8732-318b-4a20-ae91-cf78dabf7408
+Taking next connection to: 50733
+New client attempting to connect on port: 50735-50733
+  Address = /192.168.0.116:50733
+Handshake exception on socket: 50735
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -22,9 +22,15 @@ Caused by: java.net.SocketException: Software caused connection abort: recv fail
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 52226
-New client attempting to connect on port: 52229-52226
-  Address = /192.168.0.116:52226
-This client on port 52229 has uuid bc7ede3c-ad8b-4052-acb2-9ddf49e836e0 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
-Connected Clients: activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a, activator-bc7ede3c-ad8b-4052-acb2-9ddf49e836e0
-Taking next connection to: 52226
+Taking next connection to: 50733
+New client attempting to connect on port: 50736-50733
+  Address = /192.168.0.116:50733
+This client on port 50736 has uuid 3a220bc8-a237-4161-a89a-3c5b0c083ed8 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-5cec8732-318b-4a20-ae91-cf78dabf7408, activator-3a220bc8-a237-4161-a89a-3c5b0c083ed8
+Taking next connection to: 50733
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 4208@crot logs at Sat Jun 13 21:21:05 ICT 2015, goodbye.

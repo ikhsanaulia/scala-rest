@@ -14,11 +14,14 @@ val sprayVersion = "1.3.2"
 val akkaVersion = "2.3.6"
 
 libraryDependencies ++= Seq(
-    "com.typesafe.akka" 	%% "akka-actor" % akkaVersion,
-    "io.spray" 				%% "spray-can" % sprayVersion,
-    "io.spray" 				%% "spray-routing" % sprayVersion,
-    "org.json4s" 			%% "json4s-native" % "3.2.4"
-)
+    "com.typesafe.akka" 	%% "akka-actor" 		% akkaVersion,
+    "io.spray" 				%% "spray-can" 			% sprayVersion,
+    "io.spray" 				%% "spray-routing" 		% sprayVersion,
+    "org.json4s" 			%% "json4s-native" 		% "3.2.4",
+	"com.typesafe.slick" 	%% "slick" 				% "3.0.0",
+	"org.slf4j" 			% "slf4j-nop" 			% "1.6.4",
+	"postgresql" 			% "postgresql" 			% "9.1-901.jdbc4",
+  	"com.zaxxer" 			% "HikariCP"			% "2.2.5")
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" 	%% "akka-testkit" % akkaVersion % "test",

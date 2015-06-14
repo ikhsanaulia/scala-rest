@@ -1,9 +1,0 @@
-New log file opened at Tue Jun 09 16:12:13 ICT 2015 by 2548@crot
-Sending msg to client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: D:\workspace-scala\spray-actor-per-request\.sbtserver\connections\master.log))
-Sending msg to client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a: DetachedLogEvent(LogMessage(debug,sbt client logs are in: D:\workspace-scala\spray-actor-per-request\.sbtserver\connections\activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a.log))
-Sending msg to client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: D:\workspace-scala\spray-actor-per-request\.sbtserver\master.log))
-Reading next message from client.
-Client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a EOF, shutting down.
-Stopping client.
-Dropping message (0,ReceivedResponse()) to dead client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a
-Client activator-cb1c40a6-72f6-4ce2-b084-6bd568816f0a thread exiting.

@@ -4,30 +4,26 @@ import akka.actor.Actor
 import com.ikhsan.scala.rest._
 import com.ikhsan.scala.rest.clients.PetClient._
 import com.ikhsan.scala.rest.clients.OwnerClient._
-import com.ikhsan.scala.rest.clients.ProvisionClient.Provision
+import com.ikhsan.scala.dao.DeviceIdentifierDao
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext
+import com.ikhsan.scala.dao.DeviceIdentifierDao.DeviceIdentifier
+import com.ikhsan.scala.rest.clients.AuthenticationClientDomain.DeviceIdentifiers
 
-class ProvisionClient extends Actor {
+class AuthenticationClient extends Actor {
+
+  implicit val xc: ExecutionContext = ExecutionContext.global
+
   def receive = {
-    case Provision(id, "imei") => {
-      
-      sender ! NewSession("bla bla bla")
+    case ProvisionWithImei(imei) => {
+      println("receive")
+      sender ! DeviceIdentifiers(Await.result(DeviceIdentifierDao.findAll(), Duration.Inf).seq)
+      println(s"replied to $sender")
     }
   }
 }
 
-class ProvisionDao extends Actor {
-  def receive = {
-    case Provision(id, "imei") => {
-      
-      sender ! NewSession("bla bla bla")
-    }
-  }
-}
-
-object ProvisionClient {
-  case class Provision(id: String, idType: String)
-}
-
-object ProvisionDao {
-  case class SaveProvision(id: String, idType: String)
+object AuthenticationClientDomain {
+  case class DeviceIdentifiers(deviceIdentifiers: Seq[DeviceIdentifier])
 }
