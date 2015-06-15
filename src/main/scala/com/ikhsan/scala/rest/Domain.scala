@@ -5,26 +5,18 @@ package com.ikhsan.scala.rest
 trait RequestMessage
 trait ResponseMessage
 
-case class ProvisionWithImei(imei: String) extends RequestMessage
-case class GetPetsWithOwners(petNames: List[String]) extends RequestMessage
-case class PetsWithOwners(pets: Seq[EnrichedPet]) extends RequestMessage
+case class Provision(
+  id: String,
+  idType: String,
+  manufactur: String,
+  model: String) extends RequestMessage
 
-case class Result(data: Any) extends ResponseMessage
-
-// Domain objects
-
-case class Pet(name: String) {
-  def withOwner(owner: Owner) = EnrichedPet(name, owner)
+case class Ok(timestamp: Long, data: Any) extends ResponseMessage
+object ResultCreator {
+  def ok(data: Any) = Ok(System.currentTimeMillis(), data)
+  def validation(data: Any) = Validation(System.currentTimeMillis(), data)
 }
 
-case class Owner(name: String)
-
-case class EnrichedPet(name: String, owner: Owner)
-
+// Domain objects
 case class Error(message: String)
-
-case class Validation(message: String)
-
-// Exceptions
-
-case object PetOverflowException extends Exception("PetOverflowException: OMG. Pets. Everywhere.")
+case class Validation(timestamp: Long, message: Any)

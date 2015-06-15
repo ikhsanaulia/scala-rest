@@ -1,11 +1,10 @@
 package com.ikhsan.scala.dao
 
 import slick.driver.PostgresDriver.api._
+import com.ikhsan.scala.dao.DB._
 import java.sql.Timestamp
 
 object DeviceModelDao extends BaseDao {
-
-  val database = Database.forConfig("db")
 
   case class DeviceModel(
     manufactur: String,
@@ -40,6 +39,13 @@ object DeviceModelDao extends BaseDao {
           m <- deviceModels
         } yield (m.manufactur, m.model, m.name, m.description)).result)
   }
+  def findOneById(manufactur: String, model: String) = 
+    database.run(
+      (
+        for (
+          d <- deviceModels if (d.manufactur === manufactur && d.model === model)
+        ) yield (d)
+      ).result.headOption )
 
   def insert(deviceModel: DeviceModel) = {
     database.run(deviceModels += (deviceModel))

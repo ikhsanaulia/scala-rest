@@ -1,36 +1,51 @@
-New log file opened at Sat Jun 13 21:18:01 ICT 2015 by 4208@crot
-Taking next connection to: 50733
-New client attempting to connect on port: 50734-50733
-  Address = /192.168.0.116:50733
-This client on port 50734 has uuid 5cec8732-318b-4a20-ae91-cf78dabf7408 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
-Connected Clients: activator-5cec8732-318b-4a20-ae91-cf78dabf7408
-Taking next connection to: 50733
-New client attempting to connect on port: 50735-50733
-  Address = /192.168.0.116:50733
-Handshake exception on socket: 50735
+New log file opened at Mon Jun 15 22:07:31 ICT 2015 by 216@crot
+Taking next connection to: 52732
+New client attempting to connect on port: 52733-52732
+  Address = /192.168.0.116:52732
+This client on port 52733 has uuid debbd6ab-65bf-40a8-8fe3-f91acf983f21 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-debbd6ab-65bf-40a8-8fe3-f91acf983f21
+Taking next connection to: 52732
+New client attempting to connect on port: 52734-52732
+  Address = /192.168.0.116:52732
+Handshake exception on socket: 52734
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
 	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
 Caused by: java.net.SocketException: Software caused connection abort: recv failed
 	at java.net.SocketInputStream.socketRead0(Native Method)
-	at java.net.SocketInputStream.read(SocketInputStream.java:150)
-	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
 	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
 	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
 	at java.io.DataInputStream.readInt(DataInputStream.java:387)
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 50733
-New client attempting to connect on port: 50736-50733
-  Address = /192.168.0.116:50733
-This client on port 50736 has uuid 3a220bc8-a237-4161-a89a-3c5b0c083ed8 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
-Connected Clients: activator-5cec8732-318b-4a20-ae91-cf78dabf7408, activator-3a220bc8-a237-4161-a89a-3c5b0c083ed8
-Taking next connection to: 50733
+Taking next connection to: 52732
+New client attempting to connect on port: 52735-52732
+  Address = /192.168.0.116:52732
+This client on port 52735 has uuid 032ca91c-30d8-44d2-b34d-d5686db40654 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-debbd6ab-65bf-40a8-8fe3-f91acf983f21, activator-032ca91c-30d8-44d2-b34d-d5686db40654
+Taking next connection to: 52732
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52732
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52732
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52732
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52732
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52732
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 4208@crot logs at Sat Jun 13 21:21:05 ICT 2015, goodbye.

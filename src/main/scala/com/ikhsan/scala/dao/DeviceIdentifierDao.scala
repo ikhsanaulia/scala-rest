@@ -1,6 +1,7 @@
 package com.ikhsan.scala.dao
 
 import slick.driver.PostgresDriver.api._
+import com.ikhsan.scala.dao.DB._
 import java.sql.Timestamp
 import com.ikhsan.scala.dao.DeviceModelDao.DeviceModels
 import com.ikhsan.scala.dao.DeviceModelDao.DeviceModel
@@ -8,8 +9,6 @@ import slick.model.ForeignKeyAction
 import slick.lifted.ForeignKeyQuery
 
 object DeviceIdentifierDao extends BaseDao {
-
-  lazy val database = Database.forConfig("db")
 
   case class DeviceIdentifier(
     id: String,
@@ -48,10 +47,19 @@ object DeviceIdentifierDao extends BaseDao {
   val deviceIdentifiers = TableQuery[DeviceIdentifierTable]
 
   def findAll() = database.run((for (d <- deviceIdentifiers) yield (d)).result)
+  def findOneById(id: String, idType: String) = 
+    database.run(
+      (
+        for (
+          d <- deviceIdentifiers if (d.id === id && d.idType === idType)
+        ) yield (d)
+      ).result.headOption )
   
   def insert(deviceIdentifier: DeviceIdentifier) = database.run(deviceIdentifiers += deviceIdentifier)
 
-  def create() = database.run(deviceIdentifiers.schema.create)
+  def create() = {
+    database.run(deviceIdentifiers.schema.create)
+  }
 
   def createStatements() = deviceIdentifiers.schema.createStatements
 
