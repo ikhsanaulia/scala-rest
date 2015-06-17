@@ -2,21 +2,20 @@ package com.ikhsan.scala.rest.clients
 
 import akka.actor.Actor
 import com.ikhsan.scala.rest._
-import com.ikhsan.scala.dao.DeviceIdentifierDao
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext
-import com.ikhsan.scala.dao.DeviceIdentifierDao.DeviceIdentifier
-import com.ikhsan.scala.rest.clients.authentication.request.FindOrCreateSessionByDeviceIdentifierId
-import com.ikhsan.scala.dao.AppUserSessionDao
-import com.ikhsan.scala.dao.AppUserSessionDao.AppUserSession
-import com.ikhsan.scala.rest.clients.authentication.response.AppUserSessionResult
-import com.ikhsan.scala.dao.AppUserSessionDao.AppUserSession
 import java.util.UUID
 import java.sql.Timestamp
-import com.ikhsan.scala.dao.DeviceModelDao.DeviceModel
-import com.ikhsan.scala.dao.DeviceIdentifierDao.DeviceIdentifier
-import com.ikhsan.scala.dao.DeviceModelDao
+import com.ikhsan.scala.rest.clients.authentication.request.FindOrCreateSessionByDeviceIdentifierId
+import com.ikhsan.scala.db.dao.AppUserSession
+import com.ikhsan.scala.rest.clients.authentication.response.AppUserSessionResult
+import com.ikhsan.scala.db.dao.DeviceIdentifier
+import com.ikhsan.scala.db.dao.DeviceModel
+import com.ikhsan.scala.db.dao.AppUserSession
+import com.ikhsan.scala.db.dao.AppUserSessionDao
+import com.ikhsan.scala.db.dao.DeviceIdentifierDao
+import com.ikhsan.scala.db.dao.DeviceModelDao
 
 class AuthenticationClient extends Actor {
 
@@ -29,12 +28,17 @@ class AuthenticationClient extends Actor {
       deviceManufactur,
       deviceModel) => {
 
-      val appUserSessionOpt: Option[AppUserSession] = Await.result(
+      /*val appUserSessionOpt: Option[AppUserSession] = Await.result(
         AppUserSessionDao.findOneByDeviceIdentifierId(
           deviceIdentifierId,
           deviceIdentifierIdType), Duration.Inf)
 
-      sender ! AppUserSessionResult(Option(appUserSessionOpt.getOrElse({
+      if (!appUserSessionOpt.isEmpty) {
+
+        sender ! AppUserSessionResult(appUserSessionOpt)
+
+      } else {*/
+
         /*
            * Check and insert device identifier
            */
@@ -83,13 +87,13 @@ class AuthenticationClient extends Actor {
         /*
          * Send result to sender
          */
-        appUserSession
-      })))
+        sender ! AppUserSessionResult(Option(appUserSession))
+      //}
     }
   }
 }
 
-package object authentication {
+package authentication {
   object request {
     case class FindOrCreateSessionByDeviceIdentifierId(
       deviceIdentifierId: String,

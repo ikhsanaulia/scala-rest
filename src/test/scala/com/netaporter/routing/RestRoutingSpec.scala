@@ -1,7 +1,6 @@
 package com.ikhsan.scala.rest.routing
 
 import akka.testkit.{TestActorRef, TestProbe}
-import com.ikhsan.scala.rest.routing.RestRouting;
 import com.ikhsan.scala.rest._
 import org.scalatest.{Matchers, FlatSpec}
 

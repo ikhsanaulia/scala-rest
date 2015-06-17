@@ -3,13 +3,14 @@ package com.ikhsan.scala.rest
 import scala.slick.driver.PostgresDriver.simple._
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Await
-import com.ikhsan.scala.dao.DeviceIdentifierDao.DeviceIdentifier
-import com.ikhsan.scala.dao.DeviceModelDao.DeviceModel
 import java.sql.Timestamp
 import scala.concurrent.duration._
-import com.ikhsan.scala.dao.AppUserSessionDao
-import com.ikhsan.scala.dao.DeviceIdentifierDao
-import com.ikhsan.scala.dao.DeviceModelDao
+import com.ikhsan.scala.db.dao.DeviceModel
+import com.ikhsan.scala.db.dao.DeviceIdentifier
+import com.ikhsan.scala.db.dao.AppUserSessionDao
+import com.ikhsan.scala.db.dao.DeviceIdentifierDao
+import com.ikhsan.scala.db.dao.DeviceModelDao
+import com.ikhsan.scala.db.dao.AppUserDao
 
 object Main extends App {
 
@@ -19,7 +20,7 @@ object Main extends App {
 
     val s = System.currentTimeMillis()
     def loop(count: Int) {
-      println(Await.result(DeviceIdentifierDao.findAll(), Duration.Inf))
+      println(Await.result(DeviceIdentifierDao.findAll, Duration.Inf))
       if (count == 0) println(System.currentTimeMillis() - s) else loop(count - 1)
     }
     loop(10000)
@@ -67,15 +68,19 @@ object Main extends App {
   }
 
   def createDeviceModel() {
-    val f1 = DeviceModelDao.create()
+    val f1 = DeviceModelDao.create
     Await.result(f1, Duration.Inf)
   }
   def createDeviceIdentifier() {
-    val f2 = DeviceIdentifierDao.create()
+    val f2 = DeviceIdentifierDao.create
+    Await.result(f2, Duration.Inf)
+  }
+  def createAppUser() {
+    val f2 = AppUserDao.create
     Await.result(f2, Duration.Inf)
   }
   def createAppUserSession() {
-    val f2 = AppUserSessionDao.create()
+    val f2 = AppUserSessionDao.create
     Await.result(f2, Duration.Inf)
   }
 

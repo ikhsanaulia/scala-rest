@@ -2,18 +2,15 @@ package com.ikhsan.scala.rest.routing
 
 import akka.actor._
 import akka.actor.SupervisorStrategy.Stop
-import spray.http.StatusCodes._
 import spray.routing.RequestContext
 import akka.actor.OneForOneStrategy
 import spray.httpx.Json4sSupport
 import scala.concurrent.duration._
-
 import org.json4s.DefaultFormats
-
 import spray.http.StatusCode
-
 import com.ikhsan.scala.rest._
 import com.ikhsan.scala.rest.routing.PerRequest._
+import spray.http.StatusCodes
 
 trait PerRequest extends Actor with Json4sSupport {
 
@@ -29,9 +26,10 @@ import context._
   target ! message
 
   def receive = {
-    case res: ResponseMessage => complete(OK, res)
-    case v: Validation    => complete(BadRequest, v)
-    case ReceiveTimeout   => complete(GatewayTimeout, Error("Request timeout"))
+    case res: ResponseMessage => complete(StatusCodes.OK, res)
+    case v: Validation    => complete(StatusCodes.BadRequest, v)
+    case ReceiveTimeout   => complete(StatusCodes.GatewayTimeout, ResultCreator.error("Request timeout"))
+    case DeadLetter   => complete(StatusCodes.InternalServerError, ResultCreator.error("Internal server error"))
   }
 
   def complete[T <: AnyRef](status: StatusCode, obj: T) = {
@@ -42,7 +40,7 @@ import context._
   override val supervisorStrategy =
     OneForOneStrategy() {
       case e => {
-        complete(InternalServerError, Error(e.getMessage))
+        complete(StatusCodes.InternalServerError, ResultCreator.error(e.getMessage))
         Stop
       }
     }

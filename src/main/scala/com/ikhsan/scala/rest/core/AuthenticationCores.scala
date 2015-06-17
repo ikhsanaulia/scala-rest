@@ -6,7 +6,7 @@ import com.ikhsan.scala.rest._
 import scala.Some
 import akka.actor.OneForOneStrategy
 import java.util.UUID
-import com.ikhsan.scala.dao.DeviceIdentifierDao
+import com.ikhsan.scala.db.dao.DeviceIdentifierDao
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Await
 import scala.concurrent.duration._
@@ -28,7 +28,7 @@ class AuthenticationCore(authenticationClient: ActorRef) extends Actor {
       else
         context.parent ! ResultCreator.validation("Not registered")
     }
-    case Error(message) => context.parent ! Error(message) 
+    case Error(timestamp, message) => context.parent ! Error(timestamp, message) 
   }
 
   override val supervisorStrategy =

@@ -31,15 +31,15 @@ class RestRouting extends HttpService with Actor with PerRequestCreator  with Js
     respondWithMediaType(MediaTypes.`application/json`) {
       post {
         path("provision") {
-          entity(as[Provision]) { entity => {
-            provision (entity)
-          }}
+          entity(as[Provision]) { a =>
+            doProvision (a)
+          }
         }
       }
     }
   }
 
-  def provision(message : RequestMessage): Route =
+  def doProvision(message : RequestMessage): Route =
     ctx => perRequest(ctx, Props(new AuthenticationCore(authenticationClient)), message)
 
 }

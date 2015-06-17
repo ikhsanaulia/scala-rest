@@ -1,5 +1,5 @@
-New log file opened at Mon Jun 15 11:18:14 ICT 2015 by 6344@IKHSAN-PC
-jvm 6344@IKHSAN-PC
+New log file opened at Mon Jun 15 11:17:31 ICT 2015 by 1608@IKHSAN-PC
+jvm 1608@IKHSAN-PC
 jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.0-b70
 jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
 jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
@@ -38,4 +38,4 @@ Waiting for socket thread
 Waiting for request processor thread
 Waiting for command engine result
 Returning control to sbt launcher with result Exit(0)
-Closing the 6344@IKHSAN-PC logs at Mon Jun 15 11:30:15 ICT 2015, goodbye.
+Closing the 1608@IKHSAN-PC logs at Mon Jun 15 11:18:08 ICT 2015, goodbye.
