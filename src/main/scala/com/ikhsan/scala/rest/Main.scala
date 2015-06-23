@@ -26,15 +26,6 @@ object Main extends App {
     loop(10000)
   }
 
-  def selectAppUserByDev() {
-    val s = System.currentTimeMillis()
-    def loop(count: Int) {
-      println(Await.result(AppUserSessionDao.findOneById("imei"), Duration.Inf))
-      if (count == 0) println(System.currentTimeMillis() - s) else loop(count - 1)
-    }
-    loop(0)
-  }
-
   def insert() {
     val f1 = DeviceModelDao.insert(
       DeviceModel(
@@ -67,28 +58,29 @@ object Main extends App {
     Await.result(f3, Duration.Inf)
   }
 
-  def createDeviceModel() {
+  def createDeviceModel {
     val f1 = DeviceModelDao.create
     Await.result(f1, Duration.Inf)
   }
-  def createDeviceIdentifier() {
+  def createDeviceIdentifier {
     val f2 = DeviceIdentifierDao.create
     Await.result(f2, Duration.Inf)
   }
-  def createAppUser() {
+  def createAppUser {
     val f2 = AppUserDao.create
     Await.result(f2, Duration.Inf)
   }
-  def createAppUserSession() {
+  def createAppUserSession {
     val f2 = AppUserSessionDao.create
     Await.result(f2, Duration.Inf)
   }
 
-  def create() = {
-    createDeviceModel()
-    createDeviceIdentifier()
-    createAppUserSession()
+  def create {
+    createDeviceModel
+    createDeviceIdentifier
+    createAppUser
+    createAppUserSession
   }
 
-  create()
+  create
 }

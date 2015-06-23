@@ -1,0 +1,71 @@
+New log file opened at Mon Jun 15 11:18:15 ICT 2015 by 6344@IKHSAN-PC
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,sbt client logs are in: D:\workspace-scala\typesafe-projects\scala-rest\.sbtserver\connections\activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9.log))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: D:\workspace-scala\typesafe-projects\scala-rest\.sbtserver\connections\master.log))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: D:\workspace-scala\typesafe-projects\scala-rest\.sbtserver\master.log))
+Reading next message from client.
+Got request: ListenToEvents()
+Reading next message from client.
+Got request: ListenToBuildChange()
+Reading next message from client.
+Got request: SendSyntheticBuildChanged()
+Reading next message from client.
+Got request: KeyLookupRequest(discoveredMainClasses)
+Reading next message from client.
+Got request: KeyLookupRequest(mainClass)
+Reading next message from client.
+Got request: KeyLookupRequest(echo:echoTraceSupported)
+Reading next message from client.
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: (3,ReceivedResponse())
+Got request: KeyLookupRequest(echo:echoPlayVersionReport)
+Reading next message from client.
+Got request: KeyLookupRequest(echo:echoAkkaVersionReport)
+Reading next message from client.
+Got request: KeyLookupRequest(echo:echoTracePlayVersion)
+Reading next message from client.
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> --initialize))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> initialize))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> onFailure load-failed))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> boot))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> reload))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,[Loading] Scanning directory D:\workspace-scala\typesafe-projects\scala-rest\project))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,[Loading] Found non-root projects ))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,[Loading] Done in D:\workspace-scala\typesafe-projects\scala-rest\project, returning: ()))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))))))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,[Loading] Done in D:\workspace-scala\typesafe-projects\scala-rest\project, returning: (scala-rest-build)))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogTrace(IllegalArgumentException,URI has an authority component))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(error,java.lang.IllegalArgumentException: URI has an authority component))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(error,Use 'last' for the full log.))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> load-failed))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(error,Failed to load project.))
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: BuildFailedToLoad()
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: DetachedLogEvent(LogMessage(debug,> server-wait-for-reboot))
+Got request: UnlistenToEvents()
+Reading next message from client.
+Sending msg to client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9: (12,ReceivedResponse())
+Got request: UnlistenToBuildChange()
+Reading next message from client.
+Client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9 EOF, shutting down.
+Stopping client.
+Client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9 thread exiting.
+Dropping message (12,ReceivedResponse()) because client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9 of an exception serializing and sending: java.net.SocketException: socket is closed
+stack trace sending message was 
+java.net.SocketException: socket is closed
+	at sbt.impl.ipc.Peer.send(IPC.scala:74)
+	at sbt.impl.ipc.Peer.reply(IPC.scala:88)
+	at sbt.impl.ipc.Peer.replyString(IPC.scala:111)
+	at sbt.impl.ipc.Peer.replyJson(IPC.scala:124)
+	at sbt.server.SbtClientHandler$$anonfun$reply$1.apply$mcV$sp(SbtClientHandler.scala:132)
+	at sbt.server.SbtClientHandler.wrappedSend(SbtClientHandler.scala:113)
+	at sbt.server.SbtClientHandler.reply(SbtClientHandler.scala:132)
+	at sbt.server.RequestProcessor.unlistenToEvents(RequestProcessor.scala:344)
+	at sbt.server.RequestProcessor.handleRequestsNoBuildState(RequestProcessor.scala:363)
+	at sbt.server.RequestProcessor.drainRequests$1(RequestProcessor.scala:296)
+	at sbt.server.RequestProcessor.run(RequestProcessor.scala:306)
+Dropping message (0,ReceivedResponse()) to dead client activator-97510d14-7c5c-4c6c-9be2-b33222b3c4a9

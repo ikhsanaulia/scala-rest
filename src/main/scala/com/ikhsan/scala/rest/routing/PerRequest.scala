@@ -11,25 +11,28 @@ import spray.http.StatusCode
 import com.ikhsan.scala.rest._
 import com.ikhsan.scala.rest.routing.PerRequest._
 import spray.http.StatusCodes
+import com.ikhsan.scala.rest.core.authentication.SessionActor
+import com.ikhsan.scala.rest.core.authentication.SessionActor
 
 trait PerRequest extends Actor with Json4sSupport {
 
-
-import context._
+  import context._
 
   val json4sFormats = DefaultFormats
 
   def r: RequestContext
   def target: ActorRef
   def message: RequestMessage
+  
+  val sessionActor = context.actorOf(Props(new SessionActor(target)), "session-actor")
 
-  target ! message
-
+  sessionActor ! message
+  
   def receive = {
     case res: ResponseMessage => complete(StatusCodes.OK, res)
-    case v: Validation    => complete(StatusCodes.BadRequest, v)
-    case ReceiveTimeout   => complete(StatusCodes.GatewayTimeout, ResultCreator.error("Request timeout"))
-    case DeadLetter   => complete(StatusCodes.InternalServerError, ResultCreator.error("Internal server error"))
+    case v: Validation        => complete(StatusCodes.BadRequest, v)
+    case ReceiveTimeout       => complete(StatusCodes.GatewayTimeout, ResultCreator.error("Request timeout"))
+    case DeadLetter           => complete(StatusCodes.InternalServerError, ResultCreator.error("Internal server error"))
   }
 
   def complete[T <: AnyRef](status: StatusCode, obj: T) = {
@@ -47,7 +50,7 @@ import context._
 }
 
 object PerRequest {
-  case class WithActorRef(r: RequestContext, target: ActorRef, message: RequestMessage) extends PerRequest 
+  case class WithActorRef(r: RequestContext, target: ActorRef, message: RequestMessage) extends PerRequest
 
   case class WithProps(r: RequestContext, props: Props, message: RequestMessage) extends PerRequest {
     lazy val target = context.actorOf(props)
