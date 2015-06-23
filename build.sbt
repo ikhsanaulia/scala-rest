@@ -1,6 +1,6 @@
 organization in ThisBuild := "com.ikhsan.scala.rest"
 
-name := "spray-apr"
+name := "scala-rest"
 
 version := "1.0"
 
@@ -27,7 +27,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" 	%% "akka-testkit" % akkaVersion % "test",
   "io.spray" 			%% "spray-testkit" % sprayVersion % "test",
   "org.scalatest" 		%% "scalatest" % "2.1.4" % "test",
-  "com.typesafe.play" 	%% "play-json" % "2.4.0-M1"
-)
+  "com.typesafe.play" 	%% "play-json" % "2.4.0-M1",
+  "org.infinispan" 		%% "infinispan-cachestore-mongodb" % "5.3.0.Final")
 
 fork in run := true
